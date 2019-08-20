@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var Workforce = require('../models/workforces');
 var multer = require('multer');
 var path = require('path');
+
+var Workforce = require('../models/workforces');
 
 router.get('/:id?', function (req, res, next) {
     if (req.params.id) {
@@ -41,10 +42,10 @@ router.get('/:id?', function (req, res, next) {
 }); */
 
 var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/images/workforces')
+    destination: (_req, _file, cb) => {
+        cb(null, 'public/images/events')
     },
-    filename: (req, file, cb) => {
+    filename: (_req, file, cb) => {
         console.log(file.fieldname);
         console.log(Date.now());
         cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
