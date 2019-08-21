@@ -41,7 +41,7 @@ router.get('/:id?', function (req, res, next) {
     });
 }); */
 
-/* var storage = multer.diskStorage({
+var storage = multer.diskStorage({
     destination: (_req, _file, cb) => {
         cb(null, 'public/images/events')
     },
@@ -68,7 +68,7 @@ router.post('/', upload.single('image'), (req, res, next) => {
             res.status(201).send(`Workforce added with ID: ${rows.insertId}`);
         }
     });
-}); */
+});
 
 router.put('/:id', function (req, res, next) {
     Workforce.editWorkforce(req.body, req.params.id, function (err, rows) {
