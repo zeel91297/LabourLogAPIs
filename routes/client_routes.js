@@ -33,8 +33,7 @@ router.post('/', function (req, res, next) {
             res.json(err);
         }
         else {
-            res.send(`Client added with ID: ${count.insertId}`);
-            // res.status(201).send(`Client added with ID: ${count.insertId}`);
+            res.status(201).send(`Client added with ID: ${count.insertId}`);
         }
     });
 });
